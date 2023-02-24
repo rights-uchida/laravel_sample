@@ -1,0 +1,81 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "サンプルAPI",
+        "version": "0.1.0"
+    },
+    "paths": {
+        "/api": {},
+        "/api/notes/{id}": {
+            "get": {
+                "tags": [
+                    "Notes"
+                ],
+                "summary": "ノート情報を取得する",
+                "description": "ノート情報を取得する",
+                "operationId": "035836198a2be9ffe088fbbd26ec5803",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ユーザーID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ユーザー情報",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Note"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "指定したIDのユーザーが見つかりませんでした"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Notes"
+                ],
+                "summary": "Updates a note",
+                "operationId": "a97d158c39c5ceed8f55206da2f3c8ca",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Parameter with mutliple examples",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "int": {
+                                "summary": "An int value.",
+                                "value": "1"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Note": {}
+        }
+    }
+}
